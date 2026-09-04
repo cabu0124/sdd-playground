@@ -32,15 +32,9 @@ This is not a style guide — style lives in `AGENTS.md`.
    State assumptions in the spec. When blocked, ask — never guess and proceed.
    *Why:* a wrong silent assumption is discovered late, after code depends on it.
 
-## Project constraints
-
-<Non-negotiables specific to this project: supported platforms, performance or
-security budgets, compliance, data residency, deprecated approaches. Delete this
-section if there are none — an empty placeholder is worse than nothing.>
-
 ## Amendments
 
 Changing this file requires explicit human approval. Append the date and the
 reason below; never edit a principle silently.
 
-- `YYYY-MM-DD` — Initial version.
+- `2026-09-04` — Initial version.
