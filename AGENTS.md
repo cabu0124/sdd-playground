@@ -1,6 +1,4 @@
-# AGENTS.md — [project]
-
-<!-- Fill <...>. Delete what doesn't apply. Keep under 60 lines: this loads every session. -->
+# AGENTS.md — sdd-playground
 
 **Source of truth for every agent.** Tool adapters (`CLAUDE.md`, `GEMINI.md`, …) are generated
 per developer by `docs/commands/onboard.md`, only point here, and hold no project content.
@@ -21,31 +19,33 @@ No code without an approved spec. But first, classify the request:
 
 ## Project
 
-<What it is + stack, 2-3 lines.>
-<Interface: web · mobile · desktop · none, and its breakpoints. Drives wireframes.>
+A sandbox for exercising the SDD loop end to end. Features built here are
+vehicles for testing the method, not a product — judge them by whether the loop
+held, not by whether anyone would ship them. Python, run with `uv`.
+Interface: none. Specs here do not get a wireframe.
 
 ## Commands
 
-- Run: `<cmd>`
-- Test: `<cmd>`
-- Lint: `<cmd>`
-- Build: `<cmd>`
+- Test: `uv run pytest`
+- Lint: `uv run ruff check .`
+- Format: `uv run ruff format .`
+- Run: none yet — no code. The first `/sdd-plan` picks the entry point.
 
 ## Conventions
 
-- Language/version: <...>
-- Naming: <...>
-- <One line per project-type rule: API contract, component pattern, migrations...>
+- Language/version: Python, pinned in `pyproject.toml` once it exists
+- Naming: PEP 8 — `snake_case` for modules and functions, `PascalCase` for classes
+- Dependencies go through `uv add`, never a hand-edited `pyproject.toml`
 
 ## Boundaries
 
-- Never touch: <generated files, migrations, secrets, vendored dirs>
-- Ask before: <new dependency, public API change, schema change>
+- Never touch: `uv.lock` by hand, `.venv/`, secrets
+- Ask before: adding a dependency, changing a public API
 
 ## Done means
 
 - [ ] Acceptance criteria in `spec.md` met — the ones `plan.md` scopes here
-- [ ] `<test cmd>` passes and `<lint cmd>` is clean
+- [ ] `uv run pytest` passes and `uv run ruff check .` is clean
 - [ ] `tasks.md` updated
 
 ## Read on demand (not upfront)
